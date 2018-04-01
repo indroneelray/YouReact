@@ -1,0 +1,13 @@
+-There is always one Component per File
+-React should be imported for every file consisting components
+-react is for writing code which gets transcribed to es6
+-reactDOM is for rendering the component in html
+
+Functional Components and Class components
+-class component should always have a render function returning jsx
+
+
+
+--State is javascript object used to react to an event
+--Functional components do not have state, only Class based components have state
+--Controlled state is a form whos value is set by the state 
