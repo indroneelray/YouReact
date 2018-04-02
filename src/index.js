@@ -3,27 +3,31 @@
 
  import SearchBar from './components/class_cmp_search_bar';
 
+ import YTSearch from 'youtube-api-search';
+
 
 //YouTube API Key
 const API_KEY = 'AIzaSyCkNmXk3TDv6VRcweNwogta7FGXemEcJ_U';
 
 
 
-//Create new component
-//This component should produce some html
-const App = () => {     //This function is considered a class which needs to be initialised
-    return (
-        <div>Search:
-        <SearchBar />
-            </div>
-    );
-} 
+class App extends React.Component{
+        constructor(props){
+            super(props);
+            
+            this.state = {
+                videos: []
+            };
+            
+    YTSearch({key: API_KEY, term:'surfboards'}, (searchResult) => {     //videos is a function, can be called anything
+                this.setState({
+                    videos: data
+                });
+});
 
-//const App = function() {        
-//    return <div>Hi!</div>;    
-//Another way of writing the above function , the former is a more common way in react
-//}
-
+        }
+    
+}
 
 
 //Take these components' generated html and put it on the page (i.e. in the DOM)
