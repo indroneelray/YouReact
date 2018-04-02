@@ -3,6 +3,8 @@
 improt React from 'react'
 
 const VideoList = () =>{
-        <ul>
+        <ul className="col-md-4 list-group">
             </ul>
-}
+};
+
+export default VideoList;
