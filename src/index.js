@@ -9,7 +9,7 @@
 
 
 //YouTube API Key
-const API_KEY = 'AIzaSyCkNmXk3TDv6VRcweNwogta7FGXemEcJ_U';
+const API_KEY = 'AIzaSyBjEufziyW4Vpu9K7QBEayg0j-sbENNaeQ';
 
 
 
@@ -19,20 +19,18 @@ class App extends React.Component{
             this.state = {
                 videos: []
             };        
-    YTSearch({key: API_KEY, term:'surfboards'}, (searchResult) => {     //videos is a function, can be called anything
-                this.setState({
-                    videos: data
-                });
-});
+    YTSearch({key: API_KEY, term:'john'}, (videos) => {     //videos is a function, can be called anything
+                this.setState({videos});
+        });
 
-        }
+    }
 
     
     render(){
         return (
         <div>
         <SearchBar />
-        <VideoList />
+        <VideoList videos={this.state.videos}/>
         </div>
         );
     }
