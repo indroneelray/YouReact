@@ -7,6 +7,8 @@
 
  import VideoList from './components/video_list';
 
+ import VideoDetails from './components/video_details';
+
 
 //YouTube API Key
 const API_KEY = 'AIzaSyBjEufziyW4Vpu9K7QBEayg0j-sbENNaeQ';
@@ -17,10 +19,12 @@ class App extends React.Component{
         constructor(props){
             super(props); 
             this.state = {
-                videos: []
+                videos: [],
+                selectedVideo: null
             };        
-    YTSearch({key: API_KEY, term:"john mayer"}, (videos) => {     //videos is a function, can be called anything
-                this.setState({videos});
+    YTSearch({key: API_KEY, term:"UHD"}, (videos) => {     //videos is a function, can be called anything
+                this.setState({videos: videos,
+                              selectedVideo: videos[0]});
         });
 
     }
@@ -30,7 +34,10 @@ class App extends React.Component{
         return (
         <div>
         <SearchBar />
-        <VideoList videos={this.state.videos}/>
+        <VideoDetails video={this.state.selectedVideo} />
+        <VideoList
+            onVideoSelect={selectedVideo=>this.setState({selectedVideo:selectedVideo})}
+            videos={this.state.videos}/>
         </div>
         );
     }
