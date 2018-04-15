@@ -11,7 +11,7 @@
 
 
 //YouTube API Key
-const API_KEY = 'AIzaSyBjEufziyW4Vpu9K7QBEayg0j-sbENNaeQ';
+const API_KEY = 'AIzaSyDAljgAGJatnX0qGc9PN9GwnYRkaK50w9k';
 
 
 
@@ -20,20 +20,24 @@ class App extends React.Component{
             super(props); 
             this.state = {
                 videos: [],
-                selectedVideo: null
-            };        
-    YTSearch({key: API_KEY, term:"UHD"}, (videos) => {     //videos is a function, can be called anything
+                selectedVideo: null,
+                searchingTerm: ""
+            };
+            this.videoSearch("John Mayer");
+    }
+
+      
+    videoSearch(term){
+        YTSearch({key: API_KEY, term:term}, (videos) => {     //videos is a function, can be called anything
                 this.setState({videos: videos,
                               selectedVideo: videos[0]});
         });
 
     }
-
-    
     render(){
         return (
         <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={term=>this.videoSearch(term)}/>
         <VideoDetails video={this.state.selectedVideo} />
         <VideoList
             onVideoSelect={selectedVideo=>this.setState({selectedVideo:selectedVideo})}

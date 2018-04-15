@@ -1,5 +1,19 @@
+.container{
+    background-color:floralwhite
+}
+
+body{
+    background-color:rgb(17,17,17);
+}
+.class_cmp_search_bar{
+    margin:20px;
+    text-align:center;
+}
+
+
 .class_cmp_search_bar .input{
         width: 75%;
+        
 }
 
 .video-item img{
@@ -15,8 +29,30 @@
 
 .list-group-item{
     cursor:pointer;
+    background-color:rgb(16,16,16);
 }
 
 .list-group-item:hover{
     background-color:beige;    
 }
+
+button:hover{
+    background-color: lightgrey;
+    border-width: 0;
+}
+
+
+
+.home:hover{
+    background-color:red;
+}
+.home{
+   
+    float:left;
+    width:35px;
+    height:35px;
+    margin-top: 0px;
+    border-radius: 50%;
+}
+
+
